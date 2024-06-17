@@ -5,12 +5,22 @@ on:
     branches: [main]
 
 jobs:
-  build:
+
+  continuous-integration:
+
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+
       - run: sudo apt-get update
       - run: sudo apt-get install build-essential
       - run: sudo apt-get install cmake
-      - run: ls -a
+  
+      - uses: actions/checkout@v4
+      - run: mkdir build
+      - run: cd build
+      - run: cmake ..
+      - run: make
+      
+      - run: ./main
+
