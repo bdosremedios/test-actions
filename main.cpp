@@ -1,10 +1,16 @@
 #include <cstdlib>
+#include <iostream>
 
-int main() {
+#include <gtest/gtest.h>
 
+int main(int argc, char **argv) {
 
-    
+    std::cout << "Hello test-actions!" << std::endl;
 
-    return EXIT_SUCCESS;
+    testing::InitGoogleTest(&argc, argv);
+
+    int return_status = RUN_ALL_TESTS();
+
+    return return_status;
 
 }
