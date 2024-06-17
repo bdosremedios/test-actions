@@ -17,6 +17,8 @@ jobs:
       - run: sudo apt-get install cmake
   
       - uses: actions/checkout@v4
+        with:
+          submodules: 'true'
       - run: mkdir build
       - working-directory: ./build
         run: cmake ..
